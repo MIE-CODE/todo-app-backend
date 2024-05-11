@@ -17,17 +17,3 @@ mongoose
   )
   .catch((err) => console.log(err));
 app.use("/api", routes);
-//cookies
-app.get("/set-cookies", (req, res) => {
-  res.cookie("newUser", false);
-  res.cookie("isEmployee", true, {
-    maxAge: 1000 * 60 * 60 * 24,
-    httpOnly: true,
-  });
-  res.send({ type: "you got the cookies" });
-});
-app.get("/read-cookies", (req, res) => {
-  const cookies = req.cookies;
-  console.log(cookies);
-  res.json(cookies);
-});
