@@ -5,9 +5,9 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
 
+app.use(cors("*"));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors("*"));
 const dbURI =
   "mongodb+srv://MIE:meyangs126@cluster0.slzl1aq.mongodb.net/Todo-app";
 mongoose
