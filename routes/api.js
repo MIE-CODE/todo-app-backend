@@ -30,8 +30,13 @@ router.get("/", (req, res) => {
   res.send({ type: "Powered by MIE-TECH" });
 });
 
-router.post("/login", (req, res) => {
-  console.log(req.body);
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.login(email, password);
+  } catch (error) {
+    res.status(400).json({});
+  }
   res.send({ type: "login request" });
 });
 router.post("/signup", async (req, res) => {
