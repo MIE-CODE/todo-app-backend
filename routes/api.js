@@ -38,7 +38,6 @@ router.post("/login", async (req, res) => {
   } catch (error) {
     res.status(400).json({});
   }
-  res.send({ type: "login request" });
 });
 router.post("/signup", async (req, res) => {
   const { email, password } = req.body;
