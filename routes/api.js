@@ -62,7 +62,7 @@ router.post("/signup", async (req, res) => {
     res.status(400).json({ errors });
   }
 });
-// router.post("/", (req, res) => {
-//   res.send({ type: "logout request" });
-// });
+router.get("/logout", (req, res) => {
+  res.cookie("jwt", "", { maxAge: 1 });
+});
 module.exports = router;
